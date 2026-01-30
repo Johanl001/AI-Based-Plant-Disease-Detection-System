@@ -1,57 +1,47 @@
-# AI-Based Plant Disease Detection System
+# Plant Disease Detection System
 
-## Project Overview
-**Roll No:** 28, 29, 30, 32
+## Overview
+This is an end-to-end AI application for detecting plant diseases using Deep Learning. It features a FastAPI backend with SQLite integration and a modern React frontend with a premium dark-mode UI.
 
-**Problem Statement:** Develop a deep learning model to classify plant leaf diseases from images to aid in early disease detection for sustainable agriculture.
+## Project Structure
+- `backend/`: FastAPI application, database logic, and model loader.
+- `frontend/`: React application (Vite) with responsive UI.
+- `model/`: Trained Keras model (`plant_model.h5`) and class metadata.
+- `notebooks/`: Jupyter notebooks for model training.
 
-**Approach:**
-This project uses **Transfer Learning** with a Convolutional Neural Network (CNN). We leverage a pre-trained model (e.g., **MobileNetV2** or **ResNet50**) trained on ImageNet and fine-tune it for plant disease classification.
+## Prerequisites
+- Python 3.9+
+- Node.js 16+
 
-**Outcomes:**
-- A trained Deep Learning classifier.
-- Accuracy metrics and evaluation plots.
-- A demo web application for real-time inference.
+## Setup & Running
 
-**Dataset:** [Plant Disease Dataset (Kaggle)](https://www.kaggle.com/datasets/emmarex/plantdisease)
-
-## Directory Structure
-- `notebooks/`: Contains the Jupyter Notebook for training the model.
-- `app/`: Contains the Streamlit demo application.
-- `src/`: Source code for model definitions (optional usage).
-- `models/`: Directory where trained models will be saved.
-
-## Getting Started
-
-### Prerequisites
-- Python 3.8+
-- Jupyter Notebook or Google Colab
-
-### Installation (Local)
-1. Clone or download this repository.
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### Usage
-
-#### 1. Training the Model
-You can train the model using the provided notebook.
-- **Local:** Open `notebooks/Plant_Disease_Detection.ipynb` in Jupyter/VS Code.
-- **Google Colab:** Upload the notebook to Google Colab and run the cells. The notebook includes code to download the dataset directly using the Kaggle API.
-
-#### 2. Running the Demo App
-After training (or if you have a pre-trained model `plant_disease_model.h5`), run the Streamlit app:
+### 1. Backend
+Open a terminal in the root directory:
 ```bash
-streamlit run app/app.py
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
 ```
+The API will start at `http://localhost:8000`.
 
-## Dataset Setup
-The notebook uses `kagglehub` to download the dataset automatically. If running locally, ensure you have an internet connection or manually place the dataset in the `dataset/` folder.
+### 2. Frontend
+Open a **new** terminal in the root directory:
+```bash
+cd frontend
+npm install  # (If not already installed)
+npm run dev
+```
+The UI will run at `http://localhost:5173`.
 
-## Technologies Used
-- **TensorFlow/Keras**: For Deep Learning.
-- **OpenCV/Pillow**: For image processing.
-- **Streamlit**: For the web interface.
-- **Matplotlib/Seaborn**: For visualization.
+### 3. Usage
+1. Open the frontend URL.
+2. Upload a plant leaf image.
+3. Click "Diagnose Disease".
+4. View results and past history.
+
+## Deployment (Docker)
+Build and run the container:
+```bash
+docker build -t plant-disease-app .
+docker run -p 8000:8000 plant-disease-app
+```

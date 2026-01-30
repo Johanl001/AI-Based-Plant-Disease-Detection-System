@@ -1,59 +1,30 @@
-# --- Python / Virtual Environments ---
-.venv/
-venv/
-env/
-ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# --- Byte-compiled / optimized / DLL files ---
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-
-# --- Frontend (Node/React) ---
-frontend/node_modules/
-frontend/build/
-frontend/.pnp
-frontend/.pnp.js
-frontend/coverage/
-frontend/.next/
-frontend/out/
-
-# --- Environment Variables (Sensitive Info) ---
+venv/
+env/
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
-# --- Deep Learning Model Files ---
-# Note: Usually, you don't upload large .h5 or .pth files to GitHub.
-# If your model is >50MB, consider using Git LFS or hosting it on Google Drive/S3.
-# Uncomment the line below if you want to ignore the model file:
-# backend/model/*.h5
+# Jupyter Notebooks
+.ipynb_checkpoints/
 
-# --- Operating System Files ---
-.DS_Store
-Thumbs.db
-desktop.ini
+# Datasets and Large Files
+dataset/
+data/
+*.zip
+*.tar.gz
 
-# --- Editors/IDEs ---
+# Trained Models
+*.h5
+*.keras
+*.savedmodel
+models/*.h5
+models/*.keras
+
+# IDE and OS
 .vscode/
 .idea/
-*.swp
-*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
